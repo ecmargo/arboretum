@@ -16,14 +16,15 @@ Usage: ./arboretum <PATH_TO_QUERY> <FLAGS>
 
 Flags:
   N                    number of Users in the System
-  C                    number of categories (if not specified assumed to be 2^15)
+  C                    number of categories
   max-prefixes         maximum number of prefixes to score when planning
   limit-avg-sent-user  limit on the bandwidth of the average user
   limit-max-sent-user  limit on maximum user bandwidth
   limit-avg-comp-user  limit on the compute time of the average user
   limit-max-comp-user  limit on the maximum user compute time
   limit-comp-aggr      limit on the aggregator compute time
-  limit-sent-aggr      limt on the aggregator bandwidth 
+  limit-sent-aggr      limt on the aggregator bandwidth
+  deebug               prints out all intermediate plans being scored
 ```
 
 Examples of how to run queries:
