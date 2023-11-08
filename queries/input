@@ -1,0 +1,3 @@
+aggr = sum(db);
+best = em(aggr); 
+output(best);

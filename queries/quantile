@@ -1,0 +1,39 @@
+summed = sum(db);
+eps_div_2 = 1;
+n_div_2 = 100000000;
+lVal = 1;
+rVal = 1000000;
+summed = clip(summed,lVal,rVal);
+agg[0] = lVal;
+aggr[31767+1] = rVal;
+for i=0 to 32767 do
+    aggr[i+1] = summed[i];
+endfor;
+nNonZeroCategories = 0;
+for i=0 to 32769  do
+    cumulativeSums[i] = 0;
+    nonZeroCategories[i]=0;
+endfor;
+for i=0 to 32769  do
+    if (aggr[i]>0) then {
+        nonZeroCategories[nNonZeroCategories] = aggr[i];
+        cumulativeSums[nNonZeroCategories] = cumulativeSums[nNonZeroCategories-1]+aggr[i];
+        nNonZeroCategories = nNonZeroCategories+1;
+    }
+endfor;
+for i2 = 0 to 32769  do
+    if (nNonZeroCategories > i2) then {
+        scores[i2-1] = nonZeroCategories[i2]-nonZeroCategories[i2-1];
+        scores[i2-1] = log(scores[i2-1]);
+        tmp = cumulativeSums[i2-1]+1 - n_div_2;
+        tmp = abs(tmp);
+        tmp = tmp*eps_div_2;
+        scores[i2-1] = scores[i2-1] - tmp;
+    }
+endfor;
+best = emSecret(scores);
+right = nonZeroCategories[best];
+left = nonZeroCategories[best-1];
+result = sampleUniform(left,right);
+result = declassify(result);
+output(result);

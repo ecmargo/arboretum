@@ -1,0 +1,5 @@
+aggr = sum(db);
+best = aggr[0];
+best = best + laplaceNoise(0);
+best = declassify(best);
+output(best);

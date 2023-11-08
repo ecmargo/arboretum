@@ -1,0 +1,8 @@
+aggr = sum(db);
+for i=0 to 4 do
+    best = emSecret(aggr);
+    out[i] = best;
+    aggr[best] = 0-1000000;
+endfor;
+out = declassify(out);
+output(out);

@@ -1,0 +1,10 @@
+aggr = sum(db);
+argmax_i = emSecret(aggr);
+out[0] = argmax_i;
+for i=1 to 4 do
+    aggr[argmax_i] = 0-1000000;
+    argmax_i = argmax(aggr);
+    out[i] = argmax_i;
+endfor;
+out = declassify(out);
+output(out);

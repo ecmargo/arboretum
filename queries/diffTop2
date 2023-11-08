@@ -1,0 +1,8 @@
+aggr = sum(db);
+bestidx = emSecret(aggr);
+best = aggr[bestidx];
+aggr[bestidx] = 0-10000000;
+bestidx2 = argmax(aggr);
+best2 = aggr[bestidx2];
+out = declassify(best-best2);
+output(out);

@@ -1,0 +1,16 @@
+aggr = sum(db);
+size = aggr[0];
+noisy_size = size + laplaceNoise(0);
+label_1 = aggr[1];
+label_1 = label_1 + laplaceNoise(0);
+label_0 = size - label_1;
+label_0 = label_0 + laplaceNoise(0);
+p[0] = label_1 / noisy_size;
+for j=2 to 58 do
+    p[j-1] = (aggr[j] + laplaceNoise(0)) / label_1;
+endfor;
+for j=59 to 115 do
+    p[j-1] = (aggr[j] + laplaceNoise(0)) / label_0;
+endfor;
+p = declassify(p);
+output(p);

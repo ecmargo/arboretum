@@ -1,0 +1,30 @@
+D = sum(db);
+
+for m=0 to 24 do
+    for i=0 to 4 do
+        F[m][i] = sampleUniform(0, 99);
+    endfor;
+endfor;
+
+for m=0 to 24 do
+    cost = 0;
+    for j=0 to 9 do
+        v = D[j];
+        minDist = 100;
+        for i=0 to 4 do
+            d = abs(v-F[m][i]);
+            if (d < minDist) then {
+                minDist = d;
+            }
+        endfor;
+        cost = cost + minDist;
+    endfor;
+    P[m] = cost;
+endfor;
+
+
+idx = em(P);
+for i=0 to 4 do
+    result[i] = F[idx][i];
+endfor;
+output(result);

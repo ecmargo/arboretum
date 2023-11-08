@@ -1,0 +1,12 @@
+p = sum(db);
+q = 0;
+scores = [p[0],q];
+for i=0 to 1 do
+    scores[i] = scores[i] + GumbelNoise(0);
+endfor;
+best = 0;
+if (scores[1]>scores[0]) then {
+    best = 1;
+}
+best = declassify(best);
+output(best);
