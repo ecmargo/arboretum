@@ -2,8 +2,8 @@
 
 ## Authors
 - Karan Newatia 'knewatia at seas.upenn.edu'
-- Eli Margolin 'emargolin at seas.upenn.edu'
-- Andreas Haeberlen 'ahae at seas.upenn.edu'
+- Eli Margolin 'ecmargo at seas.upenn.edu'
+- Andreas Haeberlen 'ahae at cis.upenn.edu'
 
 ## Description 
 A query planner for distributed differentially private queries 
